@@ -1,0 +1,59 @@
+div, header, footer, main, nav {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    margin: 0;
+}
+
+#imgabout {
+    width: 500px;
+    height: auto;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 7px;
+    border: 2px solid;
+    text-align: start;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    color: black;
+}
+
+nav a:hover {
+    color: grey;
+}
+
+footer{
+    background-color: black;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+header ul {
+    list-style: none;
+    text-align: center;
+}
+
+header li {
+    display: inline-block;
+    padding: 0 10px;
+
+}

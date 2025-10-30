@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="lk.css">
+        <title>Food Construct</title>
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">О нас</a></li>
+                        <li><a href="#">Собрать ланч</a></li>
+                        <li><a href="#">Заказы</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                        <li><a href="feedback.html">Помощь</a></li>
+                    </ul>
+                </nav>
+                <h1>Food Construct</h1>
+            </div>
+            <div class="header-right">
+                <a href="lk.html" class="login-btn">Войти</a>
+                <a href="#" class="cart-btn">Корзина</a>
+            </div>
+        </header>
+
+        <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+            <form method="POST" action="https://httpbin.org/post" style="display: flex; flex-direction: column; gap: 10px; width: 300px;">
+                <input type="text" placeholder="Логин" name="login" style="padding: 10px;">
+                <input type="password" placeholder="Пароль" name="password" style="padding: 10px;">
+                <div style="display: flex; align-items: center; align-self: flex-start; gap: 8px;">
+                    <input type="checkbox" name="remember" style="margin: 0;">
+                    <a style="white-space: nowrap;">Запомнить меня</a>
+                </div>
+                <button type="submit" style="padding: 10px;">
+                    Войти
+                </button>
+            </form>
+        </main>
+
+        <footer id="contacts">
+            <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+            <p>Email: info@xxxxxx.ru</p>
+            <p>Адрес: г. Москва, ул. Ленина, д. 1, офис 1</p>
+        </footer>
+    </body>
+</html>

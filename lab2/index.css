@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('back.jpg') center/cover no-repeat fixed;
+}
+
+#imgabout {
+    width: 500px;
+    height: auto;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 7px;
+    border: 2px solid;
+    text-align: start;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 17px;
+    color: black;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: grey;
+}
+
+header ul {
+    list-style: none;
+    text-align: center;
+	padding: 0;
+    margin: 0;
+}
+
+header li {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+header {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+	margin: 0px;
+}
+
+header h1 {
+    margin: 10px 0;
+    font-size: 24px;
+    padding: 0 15px;
+}
+
+footer {
+    background-color: rgba(40, 40, 40, 0.9);
+    color: white;
+    margin-top: auto;
+    padding: 12px 20px;
+    text-align: left;
+}
+
+footer p {
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+main {
+    flex: 1; 
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px auto;
+    width: fit-content;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.login-btn, .cart-btn {
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: black;
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.login-btn:hover, .cart-btn:hover {
+    background-color: black;
+    color: white;
+}

@@ -1,0 +1,11 @@
+@media print {
+    nav, button, .header-right {
+        display: none !important;
+    }
+    
+    .dish-card {
+        border: 1px solid #000 !important;
+        filter: none !important;
+    }
+    
+}

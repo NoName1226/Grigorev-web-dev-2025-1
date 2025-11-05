@@ -1,0 +1,73 @@
+.dishes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.dish-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    background: white;
+    border: 2px solid transparent;
+}
+
+.dish-card:hover {
+    border: 2px solid tomato;
+}
+
+.dish-card:hover button {
+    background-color: tomato;
+    color: white;
+}
+
+.dish-card img {
+    width: 100%;
+    border-radius: 35px;
+    margin-bottom: 15px;
+}
+
+.dish-card .price {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.dish-card .name {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.dish-card .weight {
+    color: grey;
+    margin: 5px 0;
+}
+
+.dish-card button {
+    background-color: #f1eee9;
+    margin-top: auto;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+nav a.active {
+    color: tomato;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="print.css">
+        <title>Сделать заказ - Food Construct</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">О нас</a></li>
+                        <li><a href="lunch.html">Собрать ланч</a></li>
+                        <li><a href="#">Заказы</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                        <li><a href="feedback.html">Помощь</a></li>
+                    </ul>
+                </nav>
+                <h1>Food Construct</h1>
+            </div>
+            <div class="header-right">
+                <a href="lk.html" class="login-btn">Войти</a>
+                <a href="#" class="cart-btn">Корзина</a>
+            </div>
+        </header>
+
+        <main>
+            <h2>Сделать заказ</h2>
+            
+            <form method="POST" action="https://httpbin.org/post">
+                <div style="display: flex; gap: 40px; margin-bottom: 30px;">
+                    <div style="flex: 1;">
+                        <h3>Ваш заказ</h3>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <h4>Суп</h4>
+                            <p id="soupOrder">Блюдо не выбрано</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <h4>Главное блюдо</h4>
+                            <p id="mainOrder">Блюдо не выбрано</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <h4>Напиток</h4>
+                            <p id="drinkOrder">Напиток не выбран</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <h4>Стоимость заказа</h4>
+                            <p id="totalOrder">0 ₽</p>
+                        </div>
+                    </div>
+                    
+                    <div style="flex: 1;">
+                        <h4>Комментарии к заказу</h4>
+                        <textarea name="comments" style="width: 300px; height: 330px; padding: 10px; resize: none;"></textarea>
+                    </div>
+                </div>
+
+                <h3>Ваши данные</h3>
+                
+                <input type="text" name="name" placeholder="Имя" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+                
+                <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+                
+                <div style="margin-bottom: 15px;">
+                    <input type="checkbox" name="promotions" id="promotions">
+                    <label for="promotions">Получать информацию о скидках и акциях</label>
+                </div>
+                
+                <input type="tel" name="phone" placeholder="Номер телефона" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+                
+                <textarea name="address" placeholder="Адрес доставки" required style="width: 100%; padding: 10px; margin-bottom: 15px; height: 60px; resize: none;"></textarea>
+                
+                <p style="margin-bottom: 15px;"><em>Доставка осуществляется только по Москве</em></p>
+                
+                <div style="margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px;">Время доставки:</p>
+                    <input type="radio" name="delivery_time" value="asap" id="asap" checked>
+                    <label for="asap">Как можно скорее</label>
+                    <input type="radio" name="delivery_time" value="scheduled" id="scheduled" style="margin-left: 20px;">
+                    <label for="scheduled">К указанному времени</label>
+                </div>
+                
+                <!-- Скрытые поля для передачи выбранных блюд -->
+                <input type="hidden" name="soup" id="soupHidden">
+                <input type="hidden" name="main" id="mainHidden">
+                <input type="hidden" name="drink" id="drinkHidden">
+                
+                <button type="submit">
+                    Подтвердить заказ
+                </button>
+            </form>
+        </main>
+
+        <footer id="contacts">
+            <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+            <p>Email: info@foodconstruct.ru</p>
+            <p>Адрес: г. Москва, ул. Ленина, д. 1, офис 1</p>
+        </footer>
+
+        <script>
+            // Получаем параметры из URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const soup = urlParams.get('soup');
+            const main = urlParams.get('main');
+            const drink = urlParams.get('drink');
+            const total = urlParams.get('total');
+
+            // Данные блюд (нужно скопировать из dishes.js)
+            const dishes = [
+                { keyword: 'borshch', name: 'Борщ с говядиной', price: 250, category: 'soup', count: '350 мл', image: 'images/soup1.jpg' },
+                { keyword: 'chicken_soup', name: 'Куриный суп с лапшой', price: 200, category: 'soup', count: '350 мл', image: 'images/soup2.jpg' },
+                { keyword: 'mushroom_soup', name: 'Грибной крем-суп', price: 280, category: 'soup', count: '300 мл', image: 'images/soup3.jpg' },
+                { keyword: 'chicken_vegetables', name: 'Курица с овощами', price: 350, category: 'main', count: '300 г', image: 'images/main1.jpg' },
+                { keyword: 'pasta_carbonara', name: 'Паста Карбонара', price: 320, category: 'main', count: '250 г', image: 'images/main2.jpg' },
+                { keyword: 'grilled_salmon', name: 'Лосось на гриле', price: 450, category: 'main', count: '200 г', image: 'images/main3.jpg' },
+                { keyword: 'orange_juice', name: 'Апельсиновый сок', price: 150, category: 'drink', count: '330 мл', image: 'images/drink1.jpg' },
+                { keyword: 'coffee_latte', name: 'Кофе латте', price: 180, category: 'drink', count: '250 мл', image: 'images/drink2.jpg' },
+                { keyword: 'green_tea', name: 'Зеленый чай', price: 120, category: 'drink', count: '300 мл', image: 'images/drink3.jpg' }
+            ];
+
+            // Находим блюда в массиве
+            const soupDish = dishes.find(d => d.keyword === soup);
+            const mainDish = dishes.find(d => d.keyword === main);
+            const drinkDish = dishes.find(d => d.keyword === drink);
+
+            // Обновляем отображение заказа
+            if (soupDish) {
+                document.getElementById('soupOrder').textContent = soupDish.name + ' ' + soupDish.price + '₽';
+                document.getElementById('soupHidden').value = soup;
+            }
+            if (mainDish) {
+                document.getElementById('mainOrder').textContent = mainDish.name + ' ' + mainDish.price + '₽';
+                document.getElementById('mainHidden').value = main;
+            }
+            if (drinkDish) {
+                document.getElementById('drinkOrder').textContent = drinkDish.name + ' ' + drinkDish.price + '₽';
+                document.getElementById('drinkHidden').value = drink;
+            }
+            if (total) {
+                document.getElementById('totalOrder').textContent = total + '₽';
+            }
+        </script>
+    </body>
+</html>

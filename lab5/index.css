@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('back.jpg') center/cover no-repeat fixed;
+}
+
+#imgabout {
+    width: 500px;
+    height: auto;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 7px;
+    border: 2px solid;
+    text-align: start;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 17px;
+    color: black;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: grey;
+}
+
+nav a.active {
+    color: tomato;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+header ul {
+    list-style: none;
+}
+
+header li {
+    display: inline-block;
+}
+
+header {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    margin: 0px;
+}
+
+header h1 {
+    margin: 10px 0;
+    font-size: 24px;
+    padding: 0 15px;
+}
+
+footer {
+    background-color: rgba(40, 40, 40, 0.9);
+    color: white;
+    margin-top: auto;
+    padding: 12px 20px;
+    text-align: left;
+}
+
+footer p {
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+main {
+    text-align: center;
+    flex: 1; 
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px auto;
+    width: fit-content;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+section ul {
+    text-align: left;
+    display: inline-block;
+    margin: 0 auto;
+    padding-left: 0;
+}
+
+section ul li {
+    text-align: left;
+}
+
+.login-btn, .cart-btn {
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: black;
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.login-btn:hover, .cart-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 800px) {
+    nav ul {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        text-align: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        font-size: 21px;
+    }
+    
+    #imgabout {
+        width: 100%;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    table {
+        font-size: 12px;
+    }
+}

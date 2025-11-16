@@ -1,0 +1,146 @@
+.dishes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: tomato;
+    color: tomato;
+}
+
+.filter-btn.active {
+    background-color: tomato;
+    color: white;
+    border-color: tomato;
+}
+
+.dish-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    background: white;
+    border: 2px solid transparent;
+}
+
+.dish-card:hover {
+    border: 2px solid tomato;
+}
+
+.dish-card:hover button {
+    background-color: tomato;
+    color: white;
+}
+
+.dish-card img {
+    width: 100%;
+    border-radius: 35px;
+    margin-bottom: 15px;
+}
+
+.dish-card .price {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.dish-card .name {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.dish-card .weight {
+    color: grey;
+    margin: 5px 0;
+}
+
+.dish-card button {
+    background-color: #f1eee9;
+    margin-top: auto;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+nav a.active {
+    color: tomato;
+}
+
+.order-section {
+    margin-top: 40px;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    background: white;
+}
+
+.order-category {
+    margin-bottom: 20px;
+}
+
+.order-category h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.order-category p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.order-total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.order-total h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.order-total p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -1,5 +1,4 @@
 const dishes = [
-    // Ваши старые блюда - СУПЫ
     {
         keyword: 'borshch',
         name: 'Борщ с говядиной',
@@ -278,4 +277,5 @@ const dishes = [
         image: 'images/dessert6.jpg',
         kind: 'large'
     }
+
 ];

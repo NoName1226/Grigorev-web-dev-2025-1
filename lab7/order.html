@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="print.css">
+        <title>Сделать заказ - Food Construct</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .notification {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 20px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+                text-align: center;
+                min-width: 300px;
+            }
+            
+            .notification button {
+                text-decoration: none;
+                font-family: "Open Sans", sans-serif;
+                font-size: 16px;
+                color: black;
+                padding: 8px 16px;
+                border: 1px solid black;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+                background: white;
+                cursor: pointer;
+                margin-top: 15px;
+            }
+            
+            .notification button:hover {
+                background-color: black;
+                color: white;
+            }
+            
+            .form-button {
+                text-decoration: none;
+                font-family: "Open Sans", sans-serif;
+                font-size: 16px;
+                color: black;
+                padding: 8px 16px;
+                border: 1px solid black;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+                background: white;
+                cursor: pointer;
+            }
+            
+            .form-button:hover {
+                background-color: black;
+                color: white;
+            }
+            
+            .order-item:last-child {
+                border-bottom: none;
+            }
+            
+            .empty-order {
+                text-align: center;
+                color: #666;
+                font-style: italic;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">О нас</a></li>
+                        <li><a href="lunch.html" class="active">Собрать ланч</a></li>
+                        <li><a href="#">Заказы</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                        <li><a href="feedback.html">Помощь</a></li>
+                    </ul>
+                </nav>
+                <h1>Food Construct</h1>
+            </div>
+            <div class="header-right">
+                <a href="lk.html" class="login-btn">Войти</a>
+                <a href="#" class="cart-btn">Корзина</a>
+            </div>
+        </header>
+
+        <main>
+            <h2>Сделать заказ</h2>
+            
+            <form method="POST" action="https://httpbin.org/post" id="orderForm">
+                <div style="display: flex; gap: 40px; margin-bottom: 30px;">
+                    <div style="flex: 1;">
+                        <h3>Ваш заказ</h3>
+                        <div id="orderSummary">
+                            <div class="empty-order">Ничего не выбрано</div>
+                        </div>
+                    </div>
+                    
+                    <div style="flex: 1;">
+                        <h4>Комментарии к заказу</h4>
+                        <textarea name="comments" style="width: 300px; height: 330px; padding: 10px; resize: none;"></textarea>
+                    </div>
+                </div>
+
+                <h3>Ваши данные</h3>
+                
+                <input type="text" name="name" placeholder="Имя" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+                
+                <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+                
+                <div style="margin-bottom: 15px;">
+                    <input type="checkbox" name="promotions" id="promotions">
+                    <label for="promotions">Получать информацию о скидках и акциях</label>
+                </div>
+                
+                <input type="tel" name="phone" placeholder="Номер телефона" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+                
+                <textarea name="address" placeholder="Адрес доставки" required style="width: 100%; padding: 10px; margin-bottom: 15px; height: 60px; resize: none;"></textarea>
+                
+                <p style="margin-bottom: 15px;"><em>Доставка осуществляется только по Москве</em></p>
+                
+                <div style="margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px;">Время доставки:</p>
+                    <input type="radio" name="delivery_time" value="asap" id="asap" checked>
+                    <label for="asap">Как можно скорее</label>
+                    <input type="radio" name="delivery_time" value="scheduled" id="scheduled" style="margin-left: 20px;">
+                    <label for="scheduled">К указанному времени</label>
+                </div>
+
+                <input type="hidden" name="soup" id="soupHidden">
+                <input type="hidden" name="main" id="mainHidden">
+                <input type="hidden" name="starter" id="starterHidden">
+                <input type="hidden" name="drink" id="drinkHidden">
+                <input type="hidden" name="dessert" id="dessertHidden">
+                
+                <button type="submit" class="form-button">
+                    Подтвердить заказ
+                </button>
+            </form>
+        </main>
+
+        <div id="notification" class="notification">
+            <div id="notificationMessage"></div>
+            <button id="okButton">Окей</button>
+        </div>
+
+        <footer id="contacts">
+            <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+            <p>Email: info@foodconstruct.ru</p>
+            <p>Адрес: г. Москва, ул. Ленина, д. 1, офис 1</p>
+        </footer>
+
+        <script>
+            let dishes = [];
+
+            async function loadDishes() {
+                try {
+                    const response = await fetch('https://edu.std-900.ist.mospolytech.ru/labs/api/dishes');
+
+                    if (!response.ok) {
+                        throw new Error('Ошибка загрузки данных');
+                    }
+
+                    dishes = await response.json();
+                    updateOrderSummary();
+                    
+                } catch (error) {
+                    console.error('Ошибка:', error);
+                }
+            }
+
+            function updateOrderSummary() {
+                const orderSummary = document.getElementById('orderSummary');
+                
+                if (!dishes || dishes.length === 0) {
+                    orderSummary.innerHTML = '<div class="empty-order">Загрузка блюд...</div>';
+                    return;
+                }
+
+                const urlParams = new URLSearchParams(window.location.search);
+                const soup = urlParams.get('soup');
+                const main = urlParams.get('main');
+                const starter = urlParams.get('starter');
+                const drink = urlParams.get('drink');
+                const dessert = urlParams.get('dessert');
+
+                const soupDish = dishes.find(d => d.keyword === soup);
+                const mainDish = dishes.find(d => d.keyword === main);
+                const starterDish = dishes.find(d => d.keyword === starter);
+                const drinkDish = dishes.find(d => d.keyword === drink);
+                const dessertDish = dishes.find(d => d.keyword === dessert);
+
+                let hasSelection = false;
+                let orderHTML = '';
+                let calculatedTotal = 0;
+
+                if (soupDish) {
+                    orderHTML += `
+                        <div class="order-item">
+                            <h4>Суп</h4>
+                            <p>${soupDish.name} - ${soupDish.price}₽</p>
+                        </div>
+                    `;
+                    calculatedTotal += soupDish.price;
+                    hasSelection = true;
+                }
+
+                if (mainDish) {
+                    orderHTML += `
+                        <div class="order-item">
+                            <h4>Главное блюдо</h4>
+                            <p>${mainDish.name} - ${mainDish.price}₽</p>
+                        </div>
+                    `;
+                    calculatedTotal += mainDish.price;
+                    hasSelection = true;
+                }
+
+                if (starterDish) {
+                    orderHTML += `
+                        <div class="order-item">
+                            <h4>Салат или стартер</h4>
+                            <p>${starterDish.name} - ${starterDish.price}₽</p>
+                        </div>
+                    `;
+                    calculatedTotal += starterDish.price;
+                    hasSelection = true;
+                }
+
+                if (drinkDish) {
+                    orderHTML += `
+                        <div class="order-item">
+                            <h4>Напиток</h4>
+                            <p>${drinkDish.name} - ${drinkDish.price}₽</p>
+                        </div>
+                    `;
+                    calculatedTotal += drinkDish.price;
+                    hasSelection = true;
+                }
+
+                if (dessertDish) {
+                    orderHTML += `
+                        <div class="order-item">
+                            <h4>Десерт</h4>
+                            <p>${dessertDish.name} - ${dessertDish.price}₽</p>
+                        </div>
+                    `;
+                    calculatedTotal += dessertDish.price;
+                    hasSelection = true;
+                }
+
+                if (hasSelection) {
+                    orderHTML += `
+                        <div class="order-item" style="border-top: 2px solid #ccc; margin-top: 20px; padding-top: 20px;">
+                            <h4>Стоимость заказа</h4>
+                            <p style="font-size: 18px; font-weight: bold;">${calculatedTotal}₽</p>
+                        </div>
+                    `;
+                } else {
+                    orderHTML = '<div class="empty-order">Ничего не выбрано</div>';
+                }
+
+                orderSummary.innerHTML = orderHTML;
+
+                if (soupDish) document.getElementById('soupHidden').value = soup;
+                if (mainDish) document.getElementById('mainHidden').value = main;
+                if (starterDish) document.getElementById('starterHidden').value = starter;
+                if (drinkDish) document.getElementById('drinkHidden').value = drink;
+                if (dessertDish) document.getElementById('dessertHidden').value = dessert;
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                loadDishes();
+            });
+        </script>
+    <script src="order-validation.js"></script>
+    </body>
+</html>

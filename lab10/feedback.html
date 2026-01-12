@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="feedback.css">
+        <link rel="stylesheet" href="print.css">
+        <title>Помощь - Food Construct</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">О нас</a></li>
+                        <li><a href="lunch.html" class="active">Собрать ланч</a></li>
+                        <li><a href="orders.html">Заказы</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                        <li><a href="feedback.html">Помощь</a></li>
+                    </ul>
+                </nav>
+                <h1>Food Construct</h1>
+            </div>
+            <div class="header-right">
+                <a href="lk.html" class="login-btn">Войти</a>
+                <a href="#" class="cart-btn">Корзина</a>
+            </div>
+        </header>
+
+        <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+            <form method="POST" action="https://httpbin.org/post" style="display: contents;">
+                <section>
+                    <div style="display: flex; gap: 10px; width: 500px;">
+                        <input type="text" placeholder="ФИО" name="fio" style="flex: 1; padding: 10px;" required>
+                        <input type="email" placeholder="Email" name="email" style="flex: 1; padding: 10px;" required>
+                    </div>
+                </section>
+
+                <section>
+                    <div style="width: 500px; text-align: left;">
+                        <p style="margin: 0 0 10px 0;">Откуда вы о нас узнали:</p>
+                        <div style="margin-left: 0;">
+                            <div style="padding: 2px">
+                                <input type="radio" name="source" value="search" id="search" required>
+                                <label for="search">Поисковые системы (Google, Yandex и другие)</label>
+                            </div>
+                            <div style="padding: 2px">
+                                <input type="radio" name="source" value="ads" id="ads">
+                                <label for="ads">Рекламные материалы на интернет-ресурсах</label>
+                            </div>
+                            <div style="padding: 2px">
+                                <input type="radio" name="source" value="video" id="video">
+                                <label for="video">Видеоконтент (YouTube, VkВидео, RuTube)</label>
+                            </div>
+                            <div style="padding: 2px">
+                                <input type="radio" name="source" value="friends" id="friends">
+                                <label for="friends">Рекомендация друзей или знакомых</label>
+                            </div>
+                            <div style="padding: 2px">
+                                <input type="radio" name="source" value="other" id="other">
+                                <label for="other">Иной источник</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <select name="request_type" style="width: 500px; padding: 10px;" required>
+                        <option value="">Тип вашего обращения</option>
+                        <option value="purchase_problem">Проблема c покупкой на сайте</option>
+                        <option value="key_activation">Проблема с активацией ключа</option>
+                        <option value="login_problem">Проблема со входом в аккаунт</option>
+                        <option value="improvement">Предложения по улучшению сайта/сервиса</option>
+                    </select>
+                </section>
+
+                <section>
+                    <textarea placeholder="Опишите вашу проблему" name="message" style="width: 500px; height: 200px; padding: 10px; text-align: left; resize: none;" required></textarea>
+                </section>
+
+                <section>
+                    <input type="file" name="attachment" style="width: 500px; padding: 10px;">
+                </section>
+
+                <section>
+                    <div style="width: 500px; text-align: justify; display: block; margin: 0 auto;">
+                        <input type="checkbox" name="agree" id="agree" required>
+                        <label for="agree">Я согласен на обработку персональных данных в соответствии с <a href="/privacy-policy" style="color: #0066cc;">Политикой конфиденциальности</a></label>
+                    </div>
+                </section>
+
+                <section>
+                    <button type="submit" style="margin-left: 351px; padding: 10px 20px; background-color: black; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                        Отправить обращение
+                    </button>
+                </section>
+            </form>
+        </main>
+
+        <footer id="contacts">
+            <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+            <p>Email: info@xxxxxx.ru</p>
+            <p>Адрес: г. Москва, ул. Ленина, д. 1, офис 1</p>
+        </footer>
+    </body>
+</html>

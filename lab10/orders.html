@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказы - Food Construct</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="orders.css">
+    <link rel="stylesheet" href="print.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <nav>
+                <ul>
+                    <li><a href="index.html">О нас</a></li>
+                    <li><a href="lunch.html">Собрать ланч</a></li>
+                    <li><a href="order.html">Оформить заказ</a></li>
+                    <li><a href="orders.html" class="active">Заказы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                    <li><a href="feedback.html">Помощь</a></li>
+                </ul>
+            </nav>
+            <h1>Food Construct</h1>
+        </div>
+        <div class="header-right">
+            <a href="lk.html" class="login-btn">Войти</a>
+            <a href="order.html" class="cart-btn">Корзина</a>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="page-header">История заказов</h2>
+        
+        <div id="ordersLoading" class="loading">
+            <p>Загрузка заказов...</p>
+        </div>
+
+        <div id="ordersContainer" style="display: none;">
+            <!-- Заголовки колонок -->
+            <div class="orders-header">
+                <div class="orders-header-item">№</div>
+                <div class="orders-header-item">Дата оформления</div>
+                <div class="orders-header-item">Состав заказа</div>
+                <div class="orders-header-item">Стоимость</div>
+                <div class="orders-header-item">Время доставки</div>
+                <div class="orders-header-item">Действия</div>
+            </div>
+            
+            <!-- Список заказов -->
+            <div class="orders-list" id="ordersList">
+                <!-- Сюда будут добавляться заказы через JavaScript -->
+            </div>
+        </div>
+
+        <div id="noOrders" class="no-orders" style="display: none;">
+            <p>У вас пока нет заказов</p>
+            <a href="lunch.html" class="btn-primary" style="margin-top: 20px; display: inline-block;">Собрать ланч</a>
+        </div>
+    </main>
+
+    <!-- Модальное окно просмотра заказа -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Просмотр заказа</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="viewModalBody">
+                <!-- Здесь будет динамическое содержимое через JavaScript -->
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('viewModal')" class="btn btn-secondary">Ок</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно редактирования заказа -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Редактирование заказа</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <!-- Здесь будет динамическое содержимое через JavaScript -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="closeModal('editModal')" class="btn btn-secondary">Отмена</button>
+                <button type="button" onclick="saveOrder()" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно удаления заказа -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content delete-modal-content">
+            <div class="modal-header">
+                <h2>Удаление заказа</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="delete-modal-body">
+                <p>Вы уверены, что хотите удалить заказ?</p>
+                <input type="hidden" id="deleteOrderId">
+            </div>
+            <div class="delete-modal-footer">
+                <button onclick="closeModal('deleteModal')" class="btn btn-secondary">Отмена</button>
+                <button onclick="confirmDelete()" class="btn btn-danger">Да</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contacts">
+        <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+        <p>Email: info@foodconstruct.ru</p>
+        <p>Адрес: г. Москва, ул. Ленина, д. 1, офис 1</p>
+    </footer>
+
+    <script src="orders.js"></script>
+</body>
+</html>
